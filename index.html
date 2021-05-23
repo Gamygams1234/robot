@@ -7,48 +7,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robot
     </title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poller+One&display=swap" rel="stylesheet">
     <style>
         div {
             height: 150px;
             width: 300px;
-            /*background-color: #cc5;*/
-            margin: 0 auto;
+
         }
 
         .beep {
             width: 5px;
-            /*colapsing the height for the antena*/
-            height: 0;
-            /*The transparent will help the border with the trapezoid effect*/
+            height: 0px;
             border: 5px solid transparent;
-            border-top: 10px solid #888;
+            border-top: 10px solid #777;
             border-bottom: 80px solid #888;
+            position: relative;
+            left: 140px;
+        }
+
+        @keyframes blink {
+            50% {
+                background: radial-gradient(circle, red 15%, transparent 40%), #cc5;
+                background-size: 75px 150px;
+            }
+        }
+
+        @-moz-keyframes blink {
+            50% {
+                -moz-background: radial-gradient(circle, red 15%, transparent 40%), #cc5;
+                -moz-background-size: 75px 150px;
+            }
+        }
+
+        @-webkit-keyframes blink {
+            50% {
+                -webkit-background: radial-gradient(circle, red 15%, transparent 40%), #cc5;
+                -webkit-background-size: 75px 150px;
+            }
         }
 
         .brain {
+            animation: blink 1s infinite;
+            -webkit-animation: blink 1s infinite;
+            -moz-animation: blink 1s infinite;
+            background: radial-gradient(circle, white 15%, transparent 40%), #cc5;
+            background: -moz-radial-gradient(circle, white 15%, transparent 40%), #cc5;
+            background: -webkit-radial-gradient(circle, white 15%, transparent 40%), #cc5;
+            background-size: 75px 150px;
             height: 150px;
             width: 150px;
-            background-color: #cc5;
             border-radius: 60px 60px 10px 10px;
-            /* could be solid or dotted */
-            border-bottom: 40px double #666;
-            background: radial-gradient(circle, white 15%, transparent 40%), #cc5;
-            -webkit-background: radial-gradient(circle, white 15%, transparent 40%), #cc5;
-            -moz-background: radial-gradient(circle, white 15%, transparent 40%), #cc5;
-            /* double the eyes because we are giving it 2 backgrounds*/
-            background-size: 50% 100%;
-        }
-
-        .foot {
-            width: 40px;
-            height: 40px;
-            background-color: #ccc;
-            border-radius: 40px;
-            border: 15px solid #999;
+            border-bottom: 40px solid #666;
+            position: relative;
+            left: 70px;
 
         }
 
         .torso {
+            font-family: 'Poller One', cursive;
             height: 0;
             width: 140px;
             border-top: 300px solid #bc6;
@@ -56,20 +73,65 @@
             border-right: 75px solid transparent;
             border-radius: 20px 20px 100px 100px;
         }
+
+        .torso .left {
+            color: #666;
+            font-family: 'Poller One', verdana, arial, sans-serif;
+            font-weight: bold;
+            font-size: 250px;
+            transform: rotate(200deg);
+            -webkit-transform: rotate(200deg);
+            -moz-transform: rotate(200deg);
+            position: relative;
+            left: -380px;
+            top: -205px;
+            z-index: -1;
+
+        }
+
+        .torso .right {
+            color: #666;
+            font-family: 'Poller One', verdana, arial, sans-serif;
+            font-weight: bold;
+            font-size: 250px;
+            transform: scaleY(-1) rotate(20deg);
+            -webkit-transform: scaleY(-1) rotate(20deg);
+            -moz-transform: scaleY(-1) rotate(20deg);
+            position: relative;
+            left: 220px;
+            top: -355px;
+            z-index: -1;
+        }
+
+        .foot {
+            height: 40px;
+            width: 40px;
+            background: #ccc;
+            border-radius: 40px;
+            border: 15px solid #999;
+            position: relative;
+            left: 110px;
+            top: -10px;
+            z-index: -1;
+        }
+
+        .robot {
+            position: relative;
+            left: 200px;
+        }
     </style>
 </head>
 
 <body>
-    <div class="beep">
+    <div class="robot">
+        <div class="beep"></div>
+        <div class="brain"></div>
+        <div class="torso">
+            <div class="left">j</div>
+            <div class="right">j</div>
+        </div>
+        <div class="foot"></div>
     </div>
-    <div class="brain">
-    </div>
-    <div class="torso">
-    </div>
-    <div class="foot">
-    </div>
-
-
 </body>
 
 </html>
