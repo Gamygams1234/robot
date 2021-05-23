@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot
+    </title>
+    <style>
+        div {
+            height: 150px;
+            width: 300px;
+            /*background-color: #cc5;*/
+            margin: 0 auto;
+        }
+
+        .beep {
+            width: 5px;
+            /*colapsing the height for the antena*/
+            height: 0;
+            /*The transparent will help the border with the trapezoid effect*/
+            border: 5px solid transparent;
+            border-top: 10px solid #888;
+            border-bottom: 80px solid #888;
+        }
+
+        .brain {
+            height: 150px;
+            width: 150px;
+            background-color: #cc5;
+            border-radius: 60px 60px 10px 10px;
+            /* could be solid or dotted */
+            border-bottom: 40px double #666;
+            background: radial-gradient(circle, white 15%, transparent 40%), #cc5;
+            -webkit-background: radial-gradient(circle, white 15%, transparent 40%), #cc5;
+            -moz-background: radial-gradient(circle, white 15%, transparent 40%), #cc5;
+            /* double the eyes because we are giving it 2 backgrounds*/
+            background-size: 50% 100%;
+        }
+
+        .foot {
+            width: 40px;
+            height: 40px;
+            background-color: #ccc;
+            border-radius: 40px;
+            border: 15px solid #999;
+
+        }
+
+        .torso {
+            height: 0;
+            width: 140px;
+            border-top: 300px solid #bc6;
+            border-left: 75px solid transparent;
+            border-right: 75px solid transparent;
+            border-radius: 20px 20px 100px 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="beep">
+    </div>
+    <div class="brain">
+    </div>
+    <div class="torso">
+    </div>
+    <div class="foot">
+    </div>
+
+
+</body>
+
+</html>
