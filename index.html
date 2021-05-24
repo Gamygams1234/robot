@@ -9,16 +9,17 @@
     </title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poller+One&display=swap" rel="stylesheet">
-    <style>
-        div {
-            height: 150px;
-            width: 300px;
+    <link href='https://fonts.googleapis.com/css?family=Poller+One' rel='stylesheet' type='text/css'>
 
+    <style>
+        .robot {
+            position: relative;
+            left: 200px;
         }
 
         .beep {
             width: 5px;
-            height: 0px;
+            height: 0;
             border: 5px solid transparent;
             border-top: 10px solid #777;
             border-bottom: 80px solid #888;
@@ -33,24 +34,27 @@
             }
         }
 
-        @-moz-keyframes blink {
+        @-webkit-keyframes blink {
             50% {
-                -moz-background: radial-gradient(circle, red 15%, transparent 40%), #cc5;
-                -moz-background-size: 75px 150px;
+                background: -webkit-radial-gradient(circle, red 15%, transparent 40%), #cc5;
             }
         }
 
-        @-webkit-keyframes blink {
+        @-moz-keyframes blink {
             50% {
-                -webkit-background: radial-gradient(circle, red 15%, transparent 40%), #cc5;
-                -webkit-background-size: 75px 150px;
+                background: -moz-radial-gradient(circle, red 15%, transparent 40%), #cc5;
             }
+        }
+
+        .laser {
+            animation: blink .5s infinite;
+            -webkit-animation: blink .5s infinite;
+            -moz-animation: blink .5s infinite;
+
         }
 
         .brain {
-            animation: blink 1s infinite;
-            -webkit-animation: blink 1s infinite;
-            -moz-animation: blink 1s infinite;
+
             background: radial-gradient(circle, white 15%, transparent 40%), #cc5;
             background: -moz-radial-gradient(circle, white 15%, transparent 40%), #cc5;
             background: -webkit-radial-gradient(circle, white 15%, transparent 40%), #cc5;
@@ -61,11 +65,9 @@
             border-bottom: 40px solid #666;
             position: relative;
             left: 70px;
-
         }
 
         .torso {
-            font-family: 'Poller One', cursive;
             height: 0;
             width: 140px;
             border-top: 300px solid #bc6;
@@ -74,32 +76,31 @@
             border-radius: 20px 20px 100px 100px;
         }
 
-        .torso .left {
-            color: #666;
+        .left {
             font-family: 'Poller One', verdana, arial, sans-serif;
             font-weight: bold;
             font-size: 250px;
+            color: #666;
             transform: rotate(200deg);
             -webkit-transform: rotate(200deg);
             -moz-transform: rotate(200deg);
             position: relative;
-            left: -380px;
-            top: -205px;
+            top: -320px;
+            left: -190px;
             z-index: -1;
-
         }
 
-        .torso .right {
-            color: #666;
+        .right {
             font-family: 'Poller One', verdana, arial, sans-serif;
             font-weight: bold;
             font-size: 250px;
+            color: #666;
             transform: scaleY(-1) rotate(20deg);
             -webkit-transform: scaleY(-1) rotate(20deg);
             -moz-transform: scaleY(-1) rotate(20deg);
             position: relative;
-            left: 220px;
-            top: -355px;
+            top: -620px;
+            left: 190px;
             z-index: -1;
         }
 
@@ -114,15 +115,11 @@
             top: -10px;
             z-index: -1;
         }
-
-        .robot {
-            position: relative;
-            left: 200px;
-        }
     </style>
 </head>
 
 <body>
+
     <div class="robot">
         <div class="beep"></div>
         <div class="brain"></div>
@@ -132,6 +129,16 @@
         </div>
         <div class="foot"></div>
     </div>
+    <button id="flash">laser eyes on/off</button>
+    <script>
+        var flash = document.querySelector('#flash');
+        var brain = document.querySelectorAll(".brain")[0];
+
+        flash.addEventListener("click", function () {
+            brain.classList.toggle("laser");
+        });
+    </script>
+
 </body>
 
 </html>
